@@ -52,10 +52,8 @@ phases:
 #     - aws s3 cp build-artifacts-${FileName}  s3://aa-dop-co2/build-artifacts/
 
 artifacts:
-    files:
-        - main.go
-        - go.mod
-        - go.sum
+  files:
+    - '**/*'
     name: listObjects_${GOOS}_${GOARCH}_$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7).zip
 
 post_build:
