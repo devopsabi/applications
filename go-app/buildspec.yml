@@ -41,7 +41,7 @@ phases:
   build:
     commands:
       - go mod init go-app/go-app
-      - go mod tidy go-app/go-app
+      - go mod tidy
       - go build go-app/main.go
 
 artifacts:
