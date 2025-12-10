@@ -41,7 +41,8 @@ phases:
   build:
     commands:
       - cd go-app
-      - go run main.go
+      - go mod init web_server
+      - go mod tidy 
 
 artifacts:
     files:
