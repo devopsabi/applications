@@ -45,14 +45,15 @@ phases:
       - go mod init web_server
       - go mod tidy 
       - go build 
+      - echo "Zipping artifacts..."
+      - export FileName=$(date +%Y-%m-%d-%s).zip
+      - zip -r build-artifacts-$FileName .
+
+post_build:
+    commands:
+        - echo "Upload to S3 ..."
+        - aws s3 cp build-artifacts-${FileName}  s3://aa-dop-co2/build-artifacts/
 
 artifacts:
   files:
     - '**/*'
-  name: listObjects_${GOOS}_${GOARCH}_$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7).zip
-
-post_build:
-    commands:
-        - ls -lrth
-        - la -la
-        - pwd
