@@ -24,7 +24,7 @@ func main() {
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Welcome to the Go web server using mux!\n"))
+	w.Write([]byte("Welcome to the Go web server using mux app version 02!\n"))
 }
 
 func HelloHandler(w http.ResponseWriter, r *http.Request) {
