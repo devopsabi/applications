@@ -1,3 +1,6 @@
 #!/bin/bash
 echo "go run main.go"
-go run main.go &
+cd /opt
+go mod init web_server
+go mod tidy
+go run web_server &
