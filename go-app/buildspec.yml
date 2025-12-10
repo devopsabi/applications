@@ -47,8 +47,9 @@ phases:
       - echo "Zipping artifacts..."
       - export FileName=$(date +%Y-%m-%d).zip
       - zip -r build-artifacts-$FileName .
+      - ls
       - echo "Uploading to S3..."
-      - aws s3 cp build-artifacts-$FileName  s3://aa-dop-co2/build-artifacts/
+ #     - aws s3 cp build-artifacts-*.zip  s3://aa-dop-co2/build-artifacts/
 
 artifacts:
     files:
