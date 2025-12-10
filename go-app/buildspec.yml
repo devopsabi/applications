@@ -41,10 +41,16 @@ phases:
   build:
     commands:
       - cd go-app
+      - "Initializing go modules..."
       - go mod init web_server
       - go mod tidy 
+      - echo "Zipping artifacts..."
+      - FileName-sufix=$(date +%Y-%m-%d).zip
+      - zip -r build-artifacts-$FileName .
+      - echo "Uploading to S3..."
+      - aws s3 cp build-artifacts-$FileName  s3://aa-dop-co2/build-artifacts/
 
 artifacts:
     files:
-        - '**/*'
+        - build-artifacts-$FileName
 ---
