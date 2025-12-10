@@ -41,7 +41,7 @@ phases:
   build:
     commands:
       - cd go-app
-      - "Initializing go modules..."
+      - echo "Initializing go modules..."
       - go mod init web_server
       - go mod tidy 
       - echo "Zipping artifacts..."
