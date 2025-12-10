@@ -45,7 +45,7 @@ phases:
       - go mod init web_server
       - go mod tidy 
       - echo "Zipping artifacts..."
-      - export FileName=$(date +%Y-%m-%d).zip
+      - export FileName=$(date +%Y-%m-%d-%s).zip
       - zip -r build-artifacts-$FileName .
       - ls
       - echo "Uploading to S3..."
