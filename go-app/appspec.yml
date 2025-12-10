@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /opt/
+    destination: /opt
 
 hooks:
   BeforeInstall:
@@ -17,4 +17,3 @@ hooks:
   ApplicationStop:
     - location: scripts/stop.sh
       timeout: 300
----
