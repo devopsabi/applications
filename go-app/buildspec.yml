@@ -44,13 +44,20 @@ phases:
       - echo "Initializing go modules..."
       - go mod init web_server
       - go mod tidy 
-      - echo "Zipping artifacts..."
-      - export FileName=$(date +%Y-%m-%d-%s).zip
-      - zip -r build-artifacts-$FileName .
+#      - echo "Zipping artifacts..."
+#      - export FileName=$(date +%Y-%m-%d-%s).zip
+#      - zip -r build-artifacts-$FileName .
       - ls
-      - echo "Uploading to S3..."
-      - aws s3 cp build-artifacts-${FileName}  s3://aa-dop-co2/build-artifacts/
+#      - echo "Uploading to S3..."
+#     - aws s3 cp build-artifacts-${FileName}  s3://aa-dop-co2/build-artifacts/
 
 artifacts:
     files:
-        - build-artifacts-*.zip
+        - main.go
+        - go.mod
+        - go.sum
+    name: listObjects_${GOOS}_${GOARCH}_$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7).zip
+
+post_build:
+    commands:
+        - ls
