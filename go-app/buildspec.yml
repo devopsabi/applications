@@ -40,9 +40,10 @@ phases:
 
   build:
     commands:
-      - go mod init go-app/go-app
+      - cd go-app
+      - go mod init go-app
       - go mod tidy
-      - go build go-app/main.go
+      - go run main.go
 
 artifacts:
     files:
