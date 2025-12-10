@@ -52,5 +52,5 @@ phases:
 
 artifacts:
     files:
-        - build-artifacts-$FileName
+        - build-artifacts-*.zip
 ---
