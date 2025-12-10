@@ -40,7 +40,6 @@ phases:
 
   build:
     commands:
-      - cd go-app
       - echo "Initializing go modules..."
       - go mod init web_server
       - go mod tidy 
